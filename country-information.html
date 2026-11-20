@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Information — SeismoMyanmar</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        navy: { 800: '#1e293b', 900: '#0f172a', 950: '#090d16' },
+                        seismo: { red: '#dc2626', dark: '#1e2025', card: '#272a30', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <div id="map-tooltip"></div>
+
+    <header class="w-full bg-slate-900 text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-b border-slate-800">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center font-black text-xl text-white shadow-md">
+                    <i class="fa-solid font-bold fa-house-chimney-crack"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">Myanmar Earthquake Data Resources</h1>
+                    <p class="text-xs text-slate-400">UN &amp; Disaster Risk Reduction Spatial Knowledge Hub</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between overflow-x-auto py-1 scrollbar-none">
+                <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium py-1">
+                    <a href="index.html"               class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Home</a>
+                    <a href="risk-resilience.html"     class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Risk &amp; Resilience</a>
+                    <a href="data-database.html"       class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Data and Database</a>
+                    <a href="risk_reduction.html"     class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Risk Reduction</a>
+                    <a href="country-information.html" class="nav-btn nav-btn-active px-3 py-2 rounded-md">Country Information</a>
+                    <a href="about-us.html"            class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">About Us</a>
+                </div>
+                <div class="hidden lg:block">
+                    <span class="text-xs bg-slate-800 text-slate-400 px-3 py-1 rounded border border-slate-700">Updated: Nov 2026</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 world-map-bg relative">
+        <section class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[500px]">
+                
+                <div class="lg:col-span-5 flex justify-center bg-white/70 backdrop-blur p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-full max-w-xs sm:max-w-sm">
+                        <svg viewBox="0 0 400 650" class="myanmar-svg w-full h-auto drop-shadow-lg" id="country-map" data-interactive="false"></svg>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="dark-card p-6 sm:p-8 space-y-4 max-h-[550px] overflow-y-auto">
+                        <div class="border-b border-slate-700 pb-3">
+                            <span class="text-xs text-red-500 font-bold uppercase tracking-wider">Demographic &amp; Geographic Context</span>
+                            <h2 class="text-2xl font-bold text-white mt-1">Country Overview</h2>
+                        </div>
+
+                        <div class="text-slate-300 text-sm sm:text-base leading-relaxed space-y-4">
+                            <p>
+                                Myanmar is the second largest country in Southeast Asia with a total land area of 676,578 square kilometers with tropical monsoon climate. In the north, east and west, a rugged landscape in the Himalayan foothills of the country. It shares borders with 5 of the world's population: to the north and northeast with the People's Republic of China; to the east and southeast with the Lao People's Democratic Republic (Lao PDR) and Thailand; and to the west and northwest with Bangladesh and India.
+                            </p>
+                            <p>
+                                Myanmar's 1,930-kilometre coastline provides access to sea routes and shipping ports. The economy is dominated by agriculture and farming, forestry and fishing-related activities account for almost half of the gross domestic product (GDP) in 2020. Myanmar is also one of the world's most disaster-prone countries, with high vulnerability to natural hazards, and as such, it is ranked 2nd out of 180 countries most affected by extreme weather events.
+                            </p>
+                            <p>
+                                While the total population density is relatively low across the country, south East Asia, this mask a wide variation with main pocket of this population living in rural areas and the larger urban population centers like Yangon and Mandalay.
+                            </p>
+                            <p>
+                                Since 2021, Myanmar is grappling with a compound socio-economic crisis, compounded by political instabilities. On top of the existing measures of the COVID-19 pandemic, an estimated 17.6 million people require humanitarian assistance, including 1.5 million displaced children and 1.1 million women, IDPs reported in the second most crash-stricken country globally according to the INFORM Risk Index of 2024.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
+                
+                <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-white">SeismoMyanmar</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span class="hidden sm:inline">Myanmar Earthquake Data Resources</span>
+                    </div>
+                    <div class="text-slate-500">
+                        © 2026 SeismoMyanmar. All rights reserved.
+                    </div>
+                </div>
+
+                <nav class="flex flex-col items-center gap-2" aria-label="Footer quick links">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Quick Links</span>
+                    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1.5">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="risk-resilience.html" class="footer-link">Risk &amp; Resilience</a></li>
+                        <li><a href="data-database.html" class="footer-link">Data and Database</a></li>
+                        <li><a href="risk_reduction.html" class="footer-link">Risk Reduction</a></li>
+                        <li><a href="country-information.html" class="footer-link">Country Information</a></li>
+                        <li><a href="about-us.html" class="footer-link">About Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="flex flex-col items-center md:items-end gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Follow Us</span>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" aria-label="Facebook"  class="social-icon facebook"  title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter" class="social-icon twitter" title="Twitter / X"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;margin:auto;"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.926l4.713 6.231 5.605-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg><i class="fa-brands fa-x-twitter" style="display:none;" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram" class="social-icon instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"    class="social-icon tiktok"    title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Evaluation — SeismoMyanmar</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        navy: { 800: '#1e293b', 900: '#0f172a', 950: '#090d16' },
+                        seismo: { red: '#dc2626', dark: '#1e2025', card: '#272a30', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <div id="map-tooltip"></div>
+
+    <header class="w-full bg-slate-900 text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-b border-slate-800">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center font-black text-xl text-white shadow-md">
+                    <i class="fa-solid font-bold fa-house-chimney-crack"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">Myanmar Earthquake Data Resources</h1>
+                    <p class="text-xs text-slate-400">UN &amp; Disaster Risk Reduction Spatial Knowledge Hub</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between overflow-x-auto py-1 scrollbar-none">
+                <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium py-1">
+                    <a href="index.html"               class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Home</a>
+                    <a href="risk-resilience.html"     class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Risk &amp; Resilience</a>
+                    <a href="data-database.html"       class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Data and Database</a>
+                    <a href="risk_reduction.html"     class="nav-btn nav-btn-active px-3 py-2 rounded-md">Risk Reduction</a>
+                    <a href="country-information.html" class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Country Information</a>
+                    <a href="about-us.html"            class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">About Us</a>
+                </div>
+                <div class="hidden lg:block">
+                    <span class="text-xs bg-slate-800 text-slate-400 px-3 py-1 rounded border border-slate-700">Updated: Nov 2026</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 world-map-bg relative">
+        <section class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start min-h-[500px]">
+                
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="flex items-center justify-center lg:justify-start space-x-6">
+                        <div class="w-20 h-20 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-slate-200 shadow-md">
+                            <i class="fa-solid fa-user-shield text-3xl"></i>
+                        </div>
+                        <div class="w-20 h-20 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-slate-200 shadow-md">
+                            <i class="fa-solid fa-people-roof text-3xl"></i>
+                        </div>
+                        <div class="w-20 h-20 rounded-full bg-slate-900 text-white flex items-center justify-center border-4 border-slate-200 shadow-md">
+                            <i class="fa-solid fa-handshake-angle text-3xl"></i>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 sm:p-8 space-y-4 shadow-2xl">
+                        <div class="flex items-center justify-between gap-3 border-b border-slate-700 pb-3">
+                            <h3 class="text-xl font-bold text-white">Evaluation Methodology &amp; Purpose</h3>
+                            <span class="shrink-0 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/40">Plan for People</span>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            1. Before an Earthquake: Preparation & Kits
+                            Home Safety Checklist
+                            
+                            Anchor Heavy Items: Secure bookcases, heavy furniture, TVs, and wall decor to wall studs.
+                            Latch Cabinets: Install latches on kitchen and storage cabinets to keep contents from falling out.
+                            Know Your Utilities: Learn how and where to shut off your main gas and water valves to prevent fires and flooding.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                            2. During an Earthquake: Core Actions
+                            The "Drop, Cover, and Hold On" Drill
+                            DROP: Drop onto your hands and knees immediately. This keeps you from being knocked off balance and allows you to crawl.
+                            COVER: Cover your head and neck with your arms. Crawl under a sturdy table or desk if available. If no shelter is nearby, crawl to an interior wall away from windows, staying bent low to protect your vital organs.
+                            HOLD ON: Hold tightly to your shelter with one hand until the shaking stops. Use your other arm to protect your head and neck.
+                            Specialized Scenarios
+                            If in Bed: Stay in bed. Cover your head and neck with a pillow until shaking stops.
+                            If Outdoors: Drop to the ground and crawl toward an open area. Stay clear of buildings, power lines, streetlights, and trees.
+                            If Driving: Pull over safely in a clear spot away from overpasses, power lines, and structures. Set the parking brake and remain inside your vehicle until shaking stops. Proceed with caution afterward, avoiding damaged bridges or ramps.
+                            If Using a Wheelchair or Walker: Lock your wheels immediately. Stay seated, bend over, and cover your head and neck with your arms, a pillow, or a book.
+                        </p>
+                        <p>3. After an Earthquake: Immediate Response & Safety
+                            First Actions
+                            Pause Before Moving: Wait at least one minute after shaking stops to inspect your immediate surroundings for falling hazards.
+                            Put On Shoes: Put on sturdy shoes right away to prevent foot injuries from broken glass and debris.
+                            Check Environment: Use flashlights—never candles, matches, or lighters—to check for damage. Avoid using electrical light switches until you are certain there are no natural gas leaks (sparks can trigger an explosion).
+                            Evacuate Safely: If your building is structurally damaged, grab your Go-Kit and move to an open area outside. If no safe open space exists nearby, remain indoors.
+                            Aftershocks & Tsunami Risk
+                            Expect Aftershocks: Be ready to Drop, Cover, and Hold On again whenever secondary shaking occurs.
+                            Tsunami Hazard (Coastal Areas): If you are near the coast, do not wait for an official warning. As soon as shaking stops, immediately walk quickly inland or to high ground.
+                            If Trapped Under Debris
+                            Protect Airways: Cover your nose and mouth with a dust mask, cloth, or piece of clothing to avoid inhaling airborne dust and concrete particulate.
+                            Signal Rescuers: Blow a whistle or knock on a solid structural element three times every few minutes. Save your voice to prevent exhaustion and dust inhalation.
+                        </p>
+                        <div class="pt-2 flex items-center space-x-4 text-xs text-slate-400 border-t border-slate-800">
+                            <span><i class="fa-solid fa-check-circle text-emerald-500 mr-1"></i> Multi-hazard GIS</span>
+                            <span><i class="fa-solid fa-check-circle text-emerald-500 mr-1"></i> MIMU Compliant</span>
+                        </div>
+                    </div>
+
+                    <div class="dark-card p-6 sm:p-8 space-y-4 shadow-2xl">
+                        <div class="flex items-center justify-between gap-3 border-b border-slate-700 pb-3">
+                            <h3 class="text-xl font-bold text-white">Risk Reduction Plan for Buildings</h3>
+                            <span class="shrink-0 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-blue-500/15 text-blue-400 border border-blue-500/40">Plan for Buildings</span>
+                        </div>
+                        <p class="text-slate-400 text-xs leading-relaxed">
+                            People can drop, cover and hold on — buildings cannot. The measures below protect the structure itself and reduce collapse and non-structural damage before, during and after an earthquake.
+                        </p>
+
+                        <div class="space-y-2">
+                            <h4 class="text-sm font-bold text-white">1. Before an Earthquake — Build &amp; Strengthen</h4>
+                            <ul class="space-y-1.5 text-slate-300 text-sm leading-relaxed list-disc list-inside marker:text-blue-400">
+                                <li><span class="font-semibold text-white">Follow the building code:</span> have designs checked and construction supervised by qualified engineers, especially for schools, hospitals and multi-storey buildings.</li>
+                                <li><span class="font-semibold text-white">Retrofit weak structures:</span> strengthen unreinforced masonry and soft ground storeys with shear walls, cross-bracing or column jacketing.</li>
+                                <li><span class="font-semibold text-white">Anchor non-structural parts:</span> bolt down parapets, roof slabs, chimneys, water tanks, signboards and heavy cladding so they cannot fall on people below.</li>
+                                <li><span class="font-semibold text-white">Protect utilities:</span> use flexible gas and water connections and install an automatic gas shut-off valve to prevent post-earthquake fires.</li>
+                                <li><span class="font-semibold text-white">Choose and prepare the site:</span> avoid building across active fault traces, on steep slopes or on soft reclaimed soil, and keep clear evacuation space around the building.</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="text-sm font-bold text-white">2. During an Earthquake — Built-in Safeguards</h4>
+                            <ul class="space-y-1.5 text-slate-300 text-sm leading-relaxed list-disc list-inside marker:text-blue-400">
+                                <li>Elevators automatically return to the ground floor and lock out — use stairs only after the building has been inspected.</li>
+                                <li>Automatic gas shut-off valves isolate the fuel supply; emergency lighting and fire alarms switch to backup power.</li>
+                                <li>Occupants shelter away from glazed facades, suspended ceilings and heavy rooftop equipment.</li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="text-sm font-bold text-white">3. After an Earthquake — Inspect Before Re-entry</h4>
+                            <ul class="space-y-1.5 text-slate-300 text-sm leading-relaxed list-disc list-inside marker:text-blue-400">
+                                <li><span class="font-semibold text-white">Do not re-enter</span> until a qualified engineer completes a rapid visual assessment and marks the building safe or unsafe.</li>
+                                <li>Check load-bearing walls, columns, beams, staircases and utility connections for cracks, deformation or leaks.</li>
+                                <li>Cordon off falling hazards such as cracked parapets, facade tiles and damaged water tanks, and report suspected structural damage to the township authorities.</li>
+                                <li>Expect aftershocks: shore up damaged elements and keep exits and evacuation routes clear.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 self-start lg:sticky lg:top-28 flex justify-center bg-white/70 backdrop-blur p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-full max-w-xs sm:max-w-sm">
+                        <svg viewBox="0 0 400 650" class="myanmar-svg w-full h-auto drop-shadow-lg" id="eval-map" data-interactive="false"></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
+                
+                <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-white">SeismoMyanmar</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span class="hidden sm:inline">Myanmar Earthquake Data Resources</span>
+                    </div>
+                    <div class="text-slate-500">
+                        © 2026 SeismoMyanmar. All rights reserved.
+                    </div>
+                </div>
+
+                <nav class="flex flex-col items-center gap-2" aria-label="Footer quick links">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Quick Links</span>
+                    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1.5">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="risk-resilience.html" class="footer-link">Risk &amp; Resilience</a></li>
+                        <li><a href="data-database.html" class="footer-link">Data and Database</a></li>
+                        <li><a href="risk_reduction.html" class="footer-link">Risk Reduction</a></li>
+                        <li><a href="country-information.html" class="footer-link">Country Information</a></li>
+                        <li><a href="about-us.html" class="footer-link">About Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="flex flex-col items-center md:items-end gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Follow Us</span>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" aria-label="Facebook"  class="social-icon facebook"  title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter" class="social-icon twitter" title="Twitter / X"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;margin:auto;"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.926l4.713 6.231 5.605-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg><i class="fa-brands fa-x-twitter" style="display:none;" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram" class="social-icon instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"    class="social-icon tiktok"    title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

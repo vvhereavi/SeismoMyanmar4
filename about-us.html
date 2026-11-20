@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — SeismoMyanmar</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        navy: { 800: '#1e293b', 900: '#0f172a', 950: '#090d16' },
+                        seismo: { red: '#dc2626', dark: '#1e2025', card: '#272a30', accent: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <div id="map-tooltip"></div>
+
+    <header class="w-full bg-slate-900 text-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 border-b border-slate-800">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center font-black text-xl text-white shadow-md">
+                    <i class="fa-solid font-bold fa-house-chimney-crack"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">Myanmar Earthquake Data Resources</h1>
+                    <p class="text-xs text-slate-400">UN &amp; Disaster Risk Reduction Spatial Knowledge Hub</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between overflow-x-auto py-1 scrollbar-none">
+                <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm font-medium py-1">
+                    <a href="index.html"               class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Home</a>
+                    <a href="risk-resilience.html"     class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Risk &amp; Resilience</a>
+                    <a href="data-database.html"       class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Data and Database</a>
+                    <a href="risk_reduction.html"     class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Risk Reduction</a>
+                    <a href="country-information.html" class="nav-btn px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-200">Country Information</a>
+                    <a href="about-us.html"            class="nav-btn nav-btn-active px-3 py-2 rounded-md">About Us</a>
+                </div>
+                <div class="hidden lg:block">
+                    <span class="text-xs bg-slate-800 text-slate-400 px-3 py-1 rounded border border-slate-700">Updated: Nov 2026</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 world-map-bg relative">
+        <section class="block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <div class="dark-card p-6 space-y-4 border-l-4 border-red-600">
+                        <div class="flex items-center space-x-3 border-b border-slate-700 pb-3">
+                            <div class="w-9 h-9 rounded-full bg-red-600/20 text-red-400 flex items-center justify-center">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Our Mission</h3>
+                        </div>
+                        <ul class="text-slate-300 text-sm leading-relaxed space-y-2.5 list-disc list-inside marker:text-red-500">
+                            <li><span class="font-semibold text-white">A Resilient Nation:</span> Spearhead Myanmar’s transformation into a fully informed, spatially empowered, and earthquake-resilient country.</li>
+                            <li><span class="font-semibold text-white">Data-Driven Governance:</span> Establish geodynamic intelligence as the operational foundation for all territorial planning, urban design, civil engineering standards, and humanitarian frameworks.</li>
+                            <li><span class="font-semibold text-white">Universal Access:</span> Ensure every administrative level—from national policy directorates to rural township response units—has seamless access to predictive hazard models and seismic analytics.</li>
+                            <li><span class="font-semibold text-white">Minimized Impact:</span> Eliminate preventable human casualties, structural damage, and socio-economic disruption caused by tectonic events.</li>
+                        </ul>
+                    </div>
+
+                    <div class="dark-card p-6 space-y-4 border-l-4 border-blue-500">
+                        <div class="flex items-center space-x-3 border-b border-slate-700 pb-3">
+                            <div class="w-9 h-9 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Our Vision</h3>
+                        </div>
+                        <ul class="text-slate-300 text-sm leading-relaxed space-y-2.5 list-disc list-inside marker:text-blue-400">
+                            <li><span class="font-semibold text-white">Technical &amp; Spatial Leadership:</span> Serve as Myanmar’s institutional spatial knowledge hub and technical authority for mitigating earthquake vulnerabilities.</li>
+                            <li><span class="font-semibold text-white">Standardized Intelligence:</span> Deliver multi-layered spatial analytics aligned with international humanitarian protocols and Myanmar Information Management Unit (MIMU) standards.</li>
+                            <li><span class="font-semibold text-white">Stakeholder Empowerment:</span> Provide actionable spatial tools and policy guidance to civil defense authorities, INGOs, urban planners, and local emergency management teams.</li>
+                            <li><span class="font-semibold text-white">Infrastructure &amp; Community Defense:</span> Bridge critical information gaps to safeguard lives, secure infrastructure, and strengthen readiness along the Sagaing Fault and secondary active fault systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <h4 class="font-bold text-slate-800 text-base">Meet Our Core Team &amp; Collaborators</h4>
+                            <span class="text-xs text-slate-400 font-medium">SeismoMyanmar Experts</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                            
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center space-y-3 hover:shadow-md transition">
+                                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-slate-300 shadow-inner">
+                                    <img src="ZTH.jpeg" alt="Zay Thura Htet" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-sm">Zay Thura Htet</h5>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center space-y-3 hover:shadow-md transition">
+                                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-slate-300 shadow-inner">
+                                    <img src="Syte.png" alt="Shwe Yee Thoon Eain" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-sm">Shwe Yee Thoon Eain</h5>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center space-y-3 hover:shadow-md transition">
+                                <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-slate-300 shadow-inner">
+                                    <img src="ZBMH.jpeg" alt="Zwe Bhone Man Htet" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900 text-sm">Zwe Bhone Man Htet</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="flex items-center space-x-3 border-b border-slate-100 pb-3">
+                            <div class="w-9 h-9 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-lg">Contact Us</h4>
+                                <p class="text-xs text-slate-500">Get in touch with the SeismoMyanmar team</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <div class="space-y-4 text-slate-600 text-sm">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-location-dot text-red-600 mt-1"></i>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-800">Address</h5>
+                                        <p class="text-xs text-slate-500">Yangon, Myanmar</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-paper-plane text-red-600 mt-1"></i>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-800">Email</h5>
+                                        <p class="text-xs text-slate-500">contact@seismomyanmar.org</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-phone text-red-600 mt-1"></i>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-800">Phone</h5>
+                                        <p class="text-xs text-slate-500">+95 9 123 456 789</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form id="contact-form" action="#" method="POST" novalidate class="space-y-3">
+                                <div>
+                                    <input type="text" id="contact-name" name="name" placeholder="Your Name *" autocomplete="name" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500/50">
+                                    <p id="contact-name-error" class="hidden mt-1 text-[11px] font-medium text-red-600" aria-live="polite"></p>
+                                </div>
+                                <div>
+                                    <input type="tel" id="contact-phone" name="phone" placeholder="Phone Number * (e.g. 09123456789)" autocomplete="tel" required maxlength="11" inputmode="numeric" pattern="09[0-9]{9}" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500/50">
+                                    <p id="contact-phone-error" class="hidden mt-1 text-[11px] font-medium text-red-600" aria-live="polite"></p>
+                                </div>
+                                <div>
+                                    <input type="email" id="contact-email" name="email" placeholder="Your Email * (e.g. name@gmail.com)" autocomplete="email" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500/50">
+                                    <p id="contact-email-error" class="hidden mt-1 text-[11px] font-medium text-red-600" aria-live="polite"></p>
+                                </div>
+                                <div>
+                                    <textarea rows="3" id="contact-message" name="message" placeholder="Your Message * (min. 30 characters)" required minlength="30" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500/50 resize-none"></textarea>
+                                    <p id="contact-message-error" class="hidden mt-1 text-[11px] font-medium text-red-600" aria-live="polite"></p>
+                                </div>
+                                <div id="form-success" class="hidden items-center space-x-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-700" role="status" aria-live="polite">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Thank you! Your message has been sent successfully. Our team will get back to you soon.</span>
+                                </div>
+                                <button type="submit" id="contact-submit" class="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-xs transition duration-200 shadow-sm flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 text-xs py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-6">
+                
+                <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-white">SeismoMyanmar</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span class="hidden sm:inline">Myanmar Earthquake Data Resources</span>
+                    </div>
+                    <div class="text-slate-500">
+                        © 2026 SeismoMyanmar. All rights reserved.
+                    </div>
+                </div>
+
+                <nav class="flex flex-col items-center gap-2" aria-label="Footer quick links">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Quick Links</span>
+                    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1.5">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="risk-resilience.html" class="footer-link">Risk &amp; Resilience</a></li>
+                        <li><a href="data-database.html" class="footer-link">Data and Database</a></li>
+                        <li><a href="risk_reduction.html" class="footer-link">Risk Reduction</a></li>
+                        <li><a href="country-information.html" class="footer-link">Country Information</a></li>
+                        <li><a href="about-us.html" class="footer-link">About Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="flex flex-col items-center md:items-end gap-2">
+                    <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Follow Us</span>
+                    <div class="flex items-center space-x-3">
+                        <a href="#" aria-label="Facebook"  class="social-icon facebook"  title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter" class="social-icon twitter" title="Twitter / X"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false" style="display:block;margin:auto;"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.926l4.713 6.231 5.605-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg><i class="fa-brands fa-x-twitter" style="display:none;" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram" class="social-icon instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"    class="social-icon tiktok"    title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

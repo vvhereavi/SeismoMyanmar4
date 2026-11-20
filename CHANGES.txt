@@ -1,0 +1,92 @@
+SeismoMyanmar — Multi-page website
+===================================
+
+Project structure (each piece in its own file/folder):
+  index.html                — Home page (static map)
+  risk-resilience.html      — Risk & Resilience (INTERACTIVE map — clicking a
+                              region reveals its colour-coded risk level:
+                              Very High / High / Moderate / Low)
+  data-database.html        — Data and Database (INTERACTIVE map — clicking a
+                              region updates KPI cards + intensity table)
+  risk-evaluation.html      — Risk Evaluation (static map)
+  country-information.html  — Country Information (static map)
+  about-us.html             — About Us — Mission and Vision are now TWO
+                              separate rectangles (Mission with bullseye icon,
+                              Vision with eye icon), each with its own header
+                              and a coloured left-border accent
+
+  css/styles.css            — all custom CSS (map styles, social icons,
+                              risk pills, risk meter, scrollbar, dark cards)
+  js/main.js                — shared JS — now uses REAL Myanmar region
+                              polygons sourced from Natural Earth 10m admin-1
+                              GeoJSON, projected to the website's SVG viewBox
+                              (0 0 400 650) using an equirectangular
+                              projection that preserves aspect ratio.
+                              Naypyidaw (MM-18, missing from Natural Earth
+                              10m) is drawn manually at its real lat/lon.
+  images/
+    favicon.svg             — site favicon (red circle + cracked-house icon)
+    avatar-zth.svg          — placeholder avatar for Zay Thura Htet
+    avatar-syte.svg         — placeholder avatar for Shwe Yee Thoon Eain
+    avatar-zbmh.svg         — placeholder avatar for Zwe Bhone Man Htet
+    README.txt              — notes on how to swap in real team photos
+
+Improvements in this version:
+ 1. Map polygons — replaced the old ugly square/abstract polygons (with
+    messy gaps between regions) with REAL Myanmar geographic shapes from
+    Natural Earth 10m data. All 15 states/regions now form a single
+    contiguous country outline with proper internal borders, just like
+    the reference image you provided.
+ 2. About Us page — the single "Mission & Vision" rectangle is now split
+    into TWO separate rectangles: "Our Mission" (with a red left-border
+    accent and bullseye icon) and "Our Vision" (with a blue left-border
+    accent and eye icon).
+ 3. Footer — circular social-media icons (Facebook, Twitter/X, Instagram,
+    TikTok) with brand-coloured hover effects, on every page.
+ 4. Interactivity — only risk-resilience.html and data-database.html have
+    clickable maps. All other pages render display-only maps
+    (pointer-events: none, default cursor, no tooltip, no click handler).
+ 5. Risk & Resilience — clicking a region updates a colour-coded risk pill
+    (Very High=red, High=orange, Moderate=amber, Low=green), a sliding
+    "Risk Level Meter" indicator, the region's fault zone, max magnitude,
+    population, vulnerabilities, and a per-region description.
+
+To use:
+  Open index.html in any modern browser (Chrome, Edge, Firefox, Safari).
+  Tailwind CSS, FontAwesome and the Inter font load from CDNs, so an
+  internet connection is required on first load.
+
+Navigation:
+  The nav bar at the top of every page is a set of plain <a href> links,
+  so each page is independently bookmarkable and the browser's Back button
+  works normally. The active page is highlighted in red on the nav bar.
+
+============================================================
+UPDATE — 19 Nov 2026 (review-feedback revision)
+============================================================
+ 1. Footer (every page) — the copyright line now reads
+    "© 2026 SeismoMyanmar. All rights reserved." (release year and
+    group name inserted after the © sign), and a middle section with
+    Quick Links to all six pages was added between the brand block
+    and the social icons.
+ 2. Risk Reduction page — the "Real-time Monitoring" feature badge
+    was REMOVED: the website displays static, curated data and does
+    not support live seismic monitoring, so the claim was removed.
+    For the same reason the header tag on all pages changed from
+    "Monitoring Active Fault lines" (pulsing dot) to the static
+    label "Focus Region: Sagaing Fault Zone".
+ 3. Risk Reduction page — a separate "Risk Reduction Plan for
+    Buildings" card (Before / During / After an earthquake) was
+    added below the existing plan, which is now labelled
+    "Plan for People" so the two plans are clearly distinct.
+ 4. Risk Reduction page — the Myanmar map is now top-aligned
+    (items-start) and sticky on large screens, so it sits
+    horizontally beside the left container instead of drifting
+    below it when scrolling.
+ 5. About Us — Mission and Vision goals are now presented as
+    bullet lists (one bullet per goal) instead of paragraphs.
+ 6. About Us — the contact form now validates the user's input in
+    JavaScript: name (min 2 characters), email format, message
+    (min 10 characters). Invalid fields get a red border and an
+    inline error message; a valid submission shows a green success
+    confirmation (js/main.js → initContactFormValidation()).
